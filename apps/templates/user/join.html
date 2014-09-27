@@ -3,6 +3,9 @@
     {% block css %}
     <link rel="stylesheet" type="text/css" href = "{{ url_for('assets', filename= 'css/join.css')}}"/>
     {% endblock %}
+    {% block script %}
+    <script type = "text/javascript" src="{{ url_for('assets', filename='js/join.js')}}"></script>
+    {% endblock %}
     <div>
         <form role="form" id="msform" method="post">
             {{ form.hidden_tag() }}
