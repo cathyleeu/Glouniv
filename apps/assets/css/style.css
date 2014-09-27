@@ -1,3 +1,4 @@
+html { overflow-y: hidden; }
 #header{
 	width: 940px;
 	font-size: 8pt; 
