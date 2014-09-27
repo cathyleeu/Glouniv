@@ -1,28 +1,37 @@
 {% extends "layout.html" %}
-
 {% block contents %}
-	{% block navbar %}
-	    {% include "qnanav.html" %}
-	{% endblock %}
-	<div class= "Qnalist">
-		{% if context %}
-			{% if context.qna_list %}
-		        {% for qna in context.qna_list %}
-			        <div class= "well" id="qna_{{ qna.id }}">
-			        	<h1><a href="{{ url_for('qna_detail', id=qna.id) }}">{{ qna.title }}</a></h1>
-			        	<h3>{{ qna.author }}</h3>
-		                <h6>{{ qna.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</h6>
-			        	
-						<p>
-		                    {{ qna.content|truncate(50)|safe }}
-		                </p>
-			        </div>
-			    {% endfor %}
-			{% else %}
-				<div class ="no-list">
-					관심있는 대학교에 대한 질문을 등록해주세요.
-				</div>
+	<center>
+		<div id="board-container" class="fontface">
+			<h3>질문게시판</h3>
+			<a style="float: right;" href="{{ url_for('qna_create') }}">글쓰기</a>
+			<table id="board-list">
+				<tr>
+					<th style="width: 20%;">글쓴이</th>
+					<th style="width: 60%;">제목</th>
+					<th style="width: 20%;">등록일</th>
+				</tr>
+			{% if context %}
+				{% if context.qna_list %}
+					
+				        {% for qna in context.qna_list %}
+							<tr>
+					        	<td>{{ qna.author }}</td>
+					        	<td><a href="{{ url_for('qna_detail', id=qna.id) }}">{{ qna.title }}</a></td>
+				                <td>{{ qna.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+				            </tr>
+					    {% endfor %}
+				    
+				{% else %}
+					<tr>
+						<td>
+							<div class ="no-list">
+								관심있는 대학교에 대한 질문을 등록해주세요.
+							</div>
+						</td>
+					</tr>
+				{% endif %}
 			{% endif %}
-		{% endif %}
-	</div>
+			</table>
+		</div>
+	</center>
 {% endblock %}

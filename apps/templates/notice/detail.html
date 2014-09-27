@@ -1,24 +1,58 @@
 {% extends "layout.html" %}
 
 {% block contents %}
-    <div class="llArticleDetail">
-        <h1>글 상세보기</h1>
-
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">제목 : {{ notice.title }} / 작성자 : {{ notice.author }}<span class="float-right">{{ notice.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</span></h3>
+    <center>
+        <div id="board-container" class="fontface">
+            <div id="article-top">
+                <table>
+                    <tr>
+                        <th>제목 : </th>
+                        <td>{{ notice.title }}</td>
+                    </tr>
+                    <tr>
+                        <th>작성자 : </th>
+                        <td>{{ notice.author }}</td>
+                    </tr>
+                    <tr>
+                        <th>작성일 : </th>
+                        <td>{{ notice.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                    </tr>
+                </table>
             </div>
-            <div class="panel-body">
+            <div id="article-body">
                 {{ notice.content|safe }}
             </div>
-        </div>
 
-        <div class="bottomButtons">
-            <a href="{{ url_for('notice_list') }}" class="btn btn-primary">목록보기</a>
-            <a href="{{ url_for('notice_update', id=notice.id) }}" class="btn btn-success">글 수정</a>
-            <a href="{{ url_for('notice_delete', id=notice.id) }}" class="btn btn-danger">글 삭제</a>
+            <div id="article-buttons">
+                <a href="{{ url_for('notice_list') }}" class="btn btn-primary">목록보기</a>
+                <a href="{{ url_for('frcomment_create', notice_id=notice.id) }}" class="btn btn-info">댓글쓰기</a>
+                <a href="{{ url_for('notice_update', id=notice.id) }}" class="btn btn-success">글 수정</a>
+                <a href="{{ url_for('notice_delete', id=notice.id) }}" class="btn btn-danger">글 삭제</a>
+            </div>
+
+            <div id="article-comment">
+                {% if comments %}
+                    <table>
+                        {% for comment in comments %}
+                                <tr>
+                                    <td style="font-weight:bold; width:90%">{{ comment.author }}</td>
+                                    <td rowspan="2" style="vertical-align: top;">{{ comment.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ comment.content }}</td>
+                                </tr>
+                        {% endfor %}
+                {% else %}
+                        <td><tr>
+                        <div class="no-list">
+                            댓글이 없습니다.
+                        </div>
+                        </td></tr>
+                    {% endif %}
+                    </table>
+            </div>
         </div>
-    </div>
+    </center>
 {% endblock %}
 
 

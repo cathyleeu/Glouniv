@@ -178,3 +178,63 @@ footer{
 .fontface{
 	font-family:'segoe ui', Verdana, sans-serif, '맑은 고딕';
 }
+
+#board-container{
+	width: 940px;
+}
+
+#board-list{
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+#board-list th, #board-list td {
+    border-top: 1px solid #bcbcbc;
+    border-bottom: 1px solid #bcbcbc;
+    padding: 5px 10px;
+  }
+
+#board-container a, #board-container a:visited{
+	text-decoration: none;
+	color: black;
+}
+
+#board-container a:hover{
+	text-decoration: underline;
+}
+
+#article-top{
+	text-align: left;
+	width: 900px;
+	font-size: 14px;
+	padding: 10px 20px;
+    border-top: 1px solid #bcbcbc;
+    border-bottom: 1px solid #bcbcbc;
+}
+
+#article-top th{
+	text-align: right;
+}
+
+#article-body{
+	text-align: left;
+	padding: 20px;
+    border-bottom: 1px solid #bcbcbc;
+}
+
+#article-buttons{
+	text-align: right;
+	margin-bottom: 20px;
+}
+
+#article-buttons a, #article-buttons a:visited{
+	color: black;
+	font-weight: bold;
+}
+
+#article-comment{
+	padding: 20px;
+	border-top: 1px solid #bcbcbc;
+	border-bottom: 1px solid #bcbcbc;
+	font-size: 14px;
+}

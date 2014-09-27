@@ -1,28 +1,37 @@
 {% extends "layout.html" %}
-
 {% block contents %}
-	{% block navbar %}
-	    {% include "noticenav.html" %}
-	{% endblock %}
-	<div class= "noticelist">
-		{% if context %}
-			{% if context.notice_list %}
-		        {% for notice in context.notice_list %}
-			        <div class= "well" id="notice_{{ notice.id }}">
-			        	<h1><a href="{{ url_for('notice_detail', id=notice.id) }}">{{ notice.title }}</a></h1>
-			        	<h3>{{ notice.author }}</h3>
-		                <h6>{{ notice.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</h6>
-			        	
-						<p>
-		                    {{ notice.content|truncate(50)|safe }}
-		                </p>
-			        </div>
-			    {% endfor %}
-			{% else %}
-				<div class ="no-list">
-					관심있는 대학교에 대한 질문을 등록해주세요.
-				</div>
+	<center>
+		<div id="board-container" class="fontface">
+			<h3>공지사항</h3>
+			<a style="float: right;" href="{{ url_for('notice_create') }}">글쓰기</a>
+			<table id="board-list">
+				<tr>
+					<th style="width: 20%;">글쓴이</th>
+					<th style="width: 60%;">제목</th>
+					<th style="width: 20%;">등록일</th>
+				</tr>
+			{% if context %}
+				{% if context.notice_list %}
+					
+				        {% for notice in context.notice_list %}
+							<tr>
+					        	<td>{{ notice.author }}</td>
+					        	<td><a href="{{ url_for('notice_detail', id=notice.id) }}">{{ notice.title }}</a></td>
+				                <td>{{ notice.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+				            </tr>
+					    {% endfor %}
+				    
+				{% else %}
+					<tr>
+						<td>
+							<div class ="no-list">
+								관심있는 대학교에 대한 질문을 등록해주세요.
+							</div>
+						</td>
+					</tr>
+				{% endif %}
 			{% endif %}
-		{% endif %}
-	</div>
+			</table>
+		</div>
+	</center>
 {% endblock %}
