@@ -1,0 +1,13 @@
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">notice</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li{% if active_tab == 'notice_bar' %} class="active"{% endif %}><a href="{{ url_for('notice_list') }}">커뮤니티</a></li>
+            <li{% if active_tab == 'notice_create' %} class="active"{% endif %}><a href="{{ url_for('notice_create') }}">글쓰기</a></li>
+        </ul>
+    </div>
+</nav>
+
+

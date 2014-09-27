@@ -1,0 +1,182 @@
+#header{
+	width: 940px;
+	font-size: 8pt; 
+	text-align: right;
+	color: #595959; 
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #4ab7c1;
+}
+
+#logo{
+	margin: 10px 0 10px 0
+}
+
+#menu-bar{
+	z-index: 2;
+	width: 940px;
+	height: 25px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	background-color: #4ab7c1;
+}
+
+#dropdown-area{
+	padding-left: 40px;
+	position: absolute;
+	height: 25px;
+	left: 50%;
+	margin-left: -220px;
+}
+
+#dropdownmenu{
+	margin: 0 auto;
+	border: 2px solid #4ab7c1;
+	width: 500px;
+	z-index: 1;
+	background: white;
+	position: absolute;
+	left: 50%;
+	margin-left:-257px;
+}
+
+#dropdownmenu dl{
+	margin-top: 15px;
+	display: inline-block;
+}
+
+#dropdownmenu dl dd{
+	margin-bottom: 5px;
+}
+
+#dropdownmenu dl dd a{
+	color: black;
+	text-decoration: none;
+}
+
+#dropdownmenu dl dd a:hover{
+	color: #4ab7c1;
+	text-decoration: none;
+}
+
+#search-bar{
+	top:50%;
+	width: 940px;
+	height: 40px;
+	border: 2px solid #4ab7c1;
+	margin-bottom: 10px;
+}
+
+#search-input{
+	position: relative;
+	top: 3px;
+	float: left;
+	border: none;
+	padding: 5px;
+	width: 900px;
+}
+
+#search-icon{
+	background:url(../img/search_icon.png);
+	background-repeat: no-repeat;
+	height: 20px;
+	width: 20px;
+	position: relative;
+	top: 7px;
+	border: none;
+}
+
+#toggle-search{
+	float: left;
+	position: relative;
+	top:1px;
+	left: 859px;
+	z-index: 3;
+	width: 80px;
+	height: 23px;
+	vertical-align: middle;
+	background-color: #ffffff;
+	font-size:10pt;
+	text-align: center;
+}
+
+#slider{
+	z-index: 0;
+	width: 600px;
+	left: -170px;
+	position: relative;
+}
+
+#login{
+	text-align: left;
+	padding: 10px 10px 20px 20px;
+	margin: -372px 0 0 610px;
+	width: 330px; 
+	height: 160px; 
+	border: 1px solid #4ab7c1;
+	background-color: white;
+	position: relative;
+}
+
+#login form div a{
+	color: black;
+	margin: 0 10px 0 4px;
+}
+
+#login-pw{
+	margin-bottom: 5px;
+}
+
+#notice{
+	margin: 10px 0 0 610px;
+	width: 330px; 
+	height: 130px; 
+	border: 1px solid #4ab7c1;
+	background-color: white;
+}
+
+#list-free{
+	margin: 40px 0 0 -475px;
+	width: 465px; 
+	height: 300px; 
+	border: 1px solid #4ab7c1;
+	background-color: white;
+}
+
+#list-qna{
+	margin: -300px 0 0 475px;
+	width: 465px; 
+	height: 300px; 
+	border: 1px solid #4ab7c1;
+	background-color: white;
+}
+
+footer{
+	padding-top: 30px;
+	vertical-align: middle;
+	text-align: center;
+	margin-top: 100px;
+	width: 940px;
+	height: 220px;
+	background-color: #4ab7c1;
+	color: white;
+}
+
+.top-element{
+	color: black;
+	margin-left: 10px;
+	font-size: 8pt;
+	text-decoration: none;
+}
+
+.menu-element{
+	vertical-align: middle;
+	color: white;
+	font-size: 11pt;
+	margin-right: 60px;
+	text-decoration: none;
+}
+
+.fontface{
+	font-family:'segoe ui', Verdana, sans-serif, '맑은 고딕';
+}

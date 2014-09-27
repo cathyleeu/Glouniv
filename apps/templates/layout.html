@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+
+{% block layout %}
+    <div class="container">
+        {% block messages %}
+            {% include "messages.html" %}
+        {% endblock %}
+        {% block contents %}{% endblock %}
+    </div>
+    	<!-- 공통되는 것이기 때문에 include "footer.html" 각 html 이름을 해서 넣어주는 것이다 --> 
+{% endblock %}

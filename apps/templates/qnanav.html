@@ -1,0 +1,13 @@
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">QnA</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li{% if active_tab == 'qna_bar' %} class="active"{% endif %}><a href="{{ url_for('qna_list') }}">QnA</a></li>
+            <li{% if active_tab == 'qna_create' %} class="active"{% endif %}><a href="{{ url_for('qna_create') }}">글쓰기</a></li>
+        </ul>
+    </div>
+</nav>
+
+

@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block contents %}
+	{% block navbar %}
+	    {% include "forumnav.html" %}
+	{% endblock %}
+	<div class= "Forumlist">
+		{% if context %}
+			{% if context.forum_list %}
+		        {% for forum in context.forum_list %}
+			        <div class= "well" id="forum_{{ forum.id }}">
+			        	<h1><a href="{{ url_for('forum_detail', id=forum.id) }}">{{ forum.title }}</a></h1>
+			        	<h3>{{ forum.author }}</h3>
+		                <h6>{{ forum.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</h6>
+			        	
+						<p>
+		                    {{ forum.content|truncate(50)|safe }}
+		                </p>
+			        </div>
+			    {% endfor %}
+			{% else %}
+				<div class ="no-list">
+					관심있는 대학교에 대한 질문을 등록해주세요.
+				</div>
+			{% endif %}
+		{% endif %}
+	</div>
+{% endblock %}

@@ -1,0 +1,131 @@
+{% extends "index.html" %}
+{% block univ %}
+	{% block css %}
+	<link rel="stylesheet" type="text/css" href = "{{ url_for('static', filename= 'css/normalize.css')}}"/>
+	<link rel="stylesheet" type="text/css" href = "{{ url_for('static', filename= 'css/component.css')}}"/>
+	{% endblcok %}
+	{% block script %}
+	<script type = "text/javascript" src="{{ url_for('static', filename='js/snap.svg-min.js')}}"></script>
+	{% endblock %}
+			<section id="grid" class="grid clearfix">
+				<a href="/columbia" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+					<figure>
+						<img src="{{ url_for('static', filename='img/univ/columbia.jpg')}}" />
+						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+						<figcaption>
+							<h2>Columbia</h2>
+							<p>뉴욕 맨하탄에 위치하는 콜롬비아 대학교</p>
+							<button>View</button>
+						</figcaption>
+					</figure>
+				</a>
+				<a href="/edinburgh" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+					<figure>
+						<img src="{{ url_for('static', filename='img/univ/edinburgh.jpg')}}" />
+						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+						<figcaption>
+							<h2>Edinburgh</h2>
+							<p>유서깊은 역사를 자랑하는 에딘버러 대학</p>
+							<button>View</button>
+						</figcaption>
+					</figure>
+				</a>
+				<a href="/emory" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+					<figure>
+						<img src="{{ url_for('static', filename='img/univ/emory.jpg')}}" />
+						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+						<figcaption>
+							<h2>Emory</h2>
+							<p>동부의 아이비리그 에모리대학</p>
+							<button>View</button>
+						</figcaption>
+					</figure>
+				</a>
+				<a href="/north" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+					<figure>
+						<img src="{{ url_for('static', filename='img/univ/north.jpg')}}" />
+						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+						<figcaption>
+							<h2>North Illinois</h2>
+							<p>작지만 강한대학 노스일리노이스</p>
+							<button>View</button>
+						</figcaption>
+					</figure>
+				</a>
+				<a href="/san" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+					<figure>
+						<img src="{{ url_for('static', filename='img/univ/sandiego.jpg')}}" />
+						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+						<figcaption>
+							<h2>San Diego</h2>
+							<p>다양한 문화가 있는 대학</p>
+							<button>View</button>
+						</figcaption>
+					</figure>
+				</a>
+				<a href="/toronto" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+					<figure>
+						<img src="{{ url_for('static', filename='img/univ/toronto.jpg')}}" />
+						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+						<figcaption>
+							<h2>Toronto</h2>
+							<p>캐나다의 명문대</p>
+							<button>View</button>
+						</figcaption>
+					</figure>
+				</a>
+				<a href="/waseda" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+					<figure>
+						<img src="{{ url_for('static', filename='img/univ/waseda.jpg')}}" />
+						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+						<figcaption>
+							<h2>Waseda</h2>
+							<p>도쿄에 위치하는 일본의 명문대</p>
+							<button>View</button>
+						</figcaption>
+					</figure>
+				</a>
+				<a href="/malaya" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+					<figure>
+						<img src="{{ url_for('static', filename='img/univ/malaya.jpg')}}" />
+						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+						<figcaption>
+							<h2>Malaya</h2>
+							<p>말레이시아에 위치하는 국립대학교.</p>
+							<button>View</button>
+						</figcaption>
+					</figure>
+				</a>
+			</section>
+		</div><!-- /container -->
+{% block scripts %}
+		<script>
+			(function() {
+	
+				function init() {
+					var speed = 250,
+						easing = mina.easeinout;
+
+					[].slice.call ( document.querySelectorAll( '#grid > a' ) ).forEach( function( el ) {
+						var s = Snap( el.querySelector( 'svg' ) ), path = s.select( 'path' ),
+							pathConfig = {
+								from : path.attr( 'd' ),
+								to : el.getAttribute( 'data-path-hover' )
+							};
+
+						el.addEventListener( 'mouseenter', function() {
+							path.animate( { 'path' : pathConfig.to }, speed, easing );
+						} );
+
+						el.addEventListener( 'mouseleave', function() {
+							path.animate( { 'path' : pathConfig.from }, speed, easing );
+						} );
+					} );
+				}
+
+				init();
+
+			})();
+		</script>
+{% endblock %}
+{% endblock %}

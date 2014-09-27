@@ -1,0 +1,13 @@
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">faq</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li{% if active_tab == 'faq_bar' %} class="active"{% endif %}><a href="{{ url_for('faq_list') }}">포럼</a></li>
+            <li{% if active_tab == 'faq_create' %} class="active"{% endif %}><a href="{{ url_for('faq_create') }}">글쓰기</a></li>
+        </ul>
+    </div>
+</nav>
+
+

@@ -1,0 +1,42 @@
+{% extends "index.html" %}
+{% block main %}
+	{% block css %}
+		<link rel="stylesheet" type="text/css" href = "{{ url_for('static', filename= 'bootstrap-3.2.0-dist/css/bootstrap.css')}}"/>
+	{% endblock %}
+		<div id="container">
+			<div class="slider-wrapper theme-default">
+	    		<div class="ribbon"></div>
+					<div id="slider" class="nivoSlider">
+						<img src="{{ url_for('static', filename='img/main/slider/1.jpg')}}" title="캠브릿지 대학교">
+						<img src="{{ url_for('static', filename='img/main/slider/2.jpg')}}" title="콜롬비아 대학교">
+					</div>
+				</div>
+			</div>
+			<div id="login">
+				<form role="form" action="{{ url_for('log_in')}}" method= "POST">
+					<div style="width: 200px; float:left;">
+					{% if g.user_name != None %}
+						{{ g.user_name }}님 환영합니다. <button style="margin: 25px 0 0 10px; height: 93px; width: 80px" type="submit" formaction="{{ url_for('log_out')}}"class="btn btn-default">LogOut</button>  
+					{% else %}
+						<label for="login-id">ID</label>
+						<input type="text" name="email" class="form-control" id="login-id" placeholder="ID"/>
+						<label for="login-pw">Password</label>
+						<input type="password" name="pw" class="form-control" id="login-pw" placeholder="Password"/>
+						<a href="http://causal-shell-662.appspot.com/join">회원가입</a>
+						<a href="#">ID찾기</a>
+						<a href="#">PW찾기</a>
+					</div>
+					<button style="margin: 25px 0 0 10px; height: 93px; width: 80px" type="submit" class="btn btn-default">Login</button>
+					{% endif %}
+				</form>
+			</div>
+	<div id="notice" style="text-align: left; padding:10px">
+		공지사항<br><br>1.가나다라마바사<br>2.아자차카타파하<br>3.ABCDEFG
+	</div>
+	<div id="list-free" style="text-align: left; padding:10px">
+		자유게시판<br><br>1.가나다라마바사<br>2.아자차카타파하<br>3.ABCDEFG
+	</div>
+	<div id="list-qna" style="text-align: left; padding:10px">
+		질문게시판<br><br>1.가나다라마바사<br>2.아자차카타파하<br>3.ABCDEFG
+	</div>
+{% endblock %}

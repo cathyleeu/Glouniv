@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block contents %}
+    <div class="llArticleDetail">
+        <h1>글 상세보기</h1>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">제목 : {{ notice.title }} / 작성자 : {{ notice.author }}<span class="float-right">{{ notice.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</span></h3>
+            </div>
+            <div class="panel-body">
+                {{ notice.content|safe }}
+            </div>
+        </div>
+
+        <div class="bottomButtons">
+            <a href="{{ url_for('notice_list') }}" class="btn btn-primary">목록보기</a>
+            <a href="{{ url_for('notice_update', id=notice.id) }}" class="btn btn-success">글 수정</a>
+            <a href="{{ url_for('notice_delete', id=notice.id) }}" class="btn btn-danger">글 삭제</a>
+        </div>
+    </div>
+{% endblock %}
+
+

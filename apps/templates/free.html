@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block contents %}
+	{% block navbar %}
+	    {% include "freenav.html" %}
+	{% endblock %}
+	<div class= "freelist">
+		{% if context %}
+			{% if context.free_list %}
+		        {% for free in context.free_list %}
+			        <div class= "well" id="free_{{ free.id }}">
+			        	<h1><a href="{{ url_for('free_detail', id=free.id) }}">{{ free.title }}</a></h1>
+			        	<h3>{{ free.author }}</h3>
+		                <h6>{{ free.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</h6>
+			        	
+						<p>
+		                    {{ free.content|truncate(50)|safe }}
+		                </p>
+			        </div>
+			    {% endfor %}
+			{% else %}
+				<div class ="no-list">
+					관심있는 대학교에 대한 질문을 등록해주세요.
+				</div>
+			{% endif %}
+		{% endif %}
+	</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block contents %}
+	{% block navbar %}
+	    {% include "faqnav.html" %}
+	{% endblock %}
+	<div class= "faqlist">
+		{% if context %}
+			{% if context.faq_list %}
+		        {% for faq in context.faq_list %}
+			        <div class= "well" id="faq_{{ faq.id }}">
+			        	<h1><a href="{{ url_for('faq_detail', id=faq.id) }}">{{ faq.title }}</a></h1>
+			        	<h3>{{ faq.author }}</h3>
+		                <h6>{{ faq.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</h6>
+			        	
+						<p>
+		                    {{ faq.content|truncate(50)|safe }}
+		                </p>
+			        </div>
+			    {% endfor %}
+			{% else %}
+				<div class ="no-list">
+					관심있는 대학교에 대한 질문을 등록해주세요.
+				</div>
+			{% endif %}
+		{% endif %}
+	</div>
+{% endblock %}

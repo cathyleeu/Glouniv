@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block contents %}
+	{% block navbar %}
+	    {% include "noticenav.html" %}
+	{% endblock %}
+	<div class= "noticelist">
+		{% if context %}
+			{% if context.notice_list %}
+		        {% for notice in context.notice_list %}
+			        <div class= "well" id="notice_{{ notice.id }}">
+			        	<h1><a href="{{ url_for('notice_detail', id=notice.id) }}">{{ notice.title }}</a></h1>
+			        	<h3>{{ notice.author }}</h3>
+		                <h6>{{ notice.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</h6>
+			        	
+						<p>
+		                    {{ notice.content|truncate(50)|safe }}
+		                </p>
+			        </div>
+			    {% endfor %}
+			{% else %}
+				<div class ="no-list">
+					관심있는 대학교에 대한 질문을 등록해주세요.
+				</div>
+			{% endif %}
+		{% endif %}
+	</div>
+{% endblock %}
