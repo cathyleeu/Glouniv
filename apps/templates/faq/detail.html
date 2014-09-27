@@ -35,7 +35,7 @@
 
         <div class="bottomButtons">
             <a href="{{ url_for('faq_list') }}" class="btn btn-primary">목록보기</a>
-            <a href="{{ url_for('fnqcomment_create', faq_id=faq.id) }}" class="btn btn-info">댓글쓰기</a>
+            <a href="{{ url_for('fcomment_create', faq_id=faq.id) }}" class="btn btn-info">댓글쓰기</a>
             <a href="{{ url_for('faq_update', id=faq.id) }}" class="btn btn-success">글 수정</a>
             <a href="{{ url_for('faq_delete', id=faq.id) }}" class="btn btn-danger">글 삭제</a>
         </div>

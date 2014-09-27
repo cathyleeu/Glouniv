@@ -12,7 +12,7 @@ class Config(object):
     # Set secret key to use session
     SECRET_KEY = "glouniv"
     debug = False
-    PERMANENT_SESSION_LIFETIME = timedelta(minutes=2)
+    PERMANENT_SESSION_LIFETIME = timedelta(minutes=15)
 
 
 class Production(Config):

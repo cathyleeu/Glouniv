@@ -541,7 +541,7 @@ def board_delete(id):
 			flash(u'질문을 삭제하였습니다.', 'success')
 			return redirect(url_for('board_list'))
 
-@app.route('/bcomment/create/<int:qna_id>', methods=['GET', 'POST'])
+@app.route('/bcomment/create/<int:board_id>', methods=['GET', 'POST'])
 def bcomment_create(board_id):
 	if g.user_name == None:
 		flash(u'로그인 후 이용해 주세요.', 'danger')
@@ -850,7 +850,7 @@ def notice_detail(id):
 		# comments = Comment.query.order_by(desc(Comment.date_created)).filter_by(article=article)
 
 		# relationship을 활용한 query
-		return render_template('notice/detail.html', notice=notice, comments=comments)
+		return render_template('notice/detail.html', notice=notice)
 
 
 @app.route('/notice/update/<int:id>', methods=['GET', 'POST'])
@@ -973,7 +973,7 @@ def faq_delete(id):
 			return redirect(url_for('faq_list'))
 
 @app.route('/fcomment/create/<int:faq_id>', methods=['GET', 'POST'])
-def fcomment_create(humor_id):
+def fcomment_create(faq_id):
 	if g.user_name == None:
 		flash(u'로그인 후 이용해 주세요.', 'danger')
 		return redirect(url_for('log_in'))
