@@ -33,7 +33,7 @@ html { overflow-y: hidden; }
 #dropdownmenu{
 	width: 650px;
 	border: 2px solid #4ab7c1;
-	z-index: 1;
+	z-index: 100;
 	background: white;
 	position: absolute;
 	left: 50%;
