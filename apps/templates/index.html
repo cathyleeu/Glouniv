@@ -80,8 +80,8 @@
 			</div>
 		</div>
 		<div id="search-bar">
-			<form>
-				<input id="search-input" placeholder="SEARCH">
+			<form action="{{ url_for('search') }}">
+				<input id="search-input" name="query" placeholder="SEARCH">
 				<input type="submit" id="search-icon" value="">
 			</form>
 		</div>
