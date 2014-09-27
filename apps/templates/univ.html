@@ -1,8 +1,8 @@
 {% extends "index.html" %}
 {% block univ %}
 	{% block css %}
-	<link rel="stylesheet" type="text/css" href = "{{ url_for('static', filename= 'css/normalize.css')}}"/>
-	<link rel="stylesheet" type="text/css" href = "{{ url_for('static', filename= 'css/component.css')}}"/>
+	<link rel="stylesheet" type="text/css" href = "{{ url_for('assets', filename= 'css/normalize.css')}}"/>
+	<link rel="stylesheet" type="text/css" href = "{{ url_for('assets', filename= 'css/component.css')}}"/>
 	{% endblcok %}
 	{% block script %}
 	<script type = "text/javascript" src="{{ url_for('static', filename='js/snap.svg-min.js')}}"></script>

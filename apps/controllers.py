@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+ASSET_REVISION = hashlib.sha1(str(DefaultConfig.PROJECT) + str(datetime.datetime.now())).hexdigest()[:16]
 from flask import render_template, request, redirect, url_for, flash, session, g
 from sqlalchemy import desc
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -6,6 +7,16 @@ from apps import app, db
 from apps.forms import ArticleForm, CommentForm, ForumForm, JoinForm, LoginForm
 
 from apps.models import (Forum, Board, QnA, QnAComment, Comment, BoardComment, Free, FreeComment, Notice, Humor, HumorComment, FAQ, FAQComment, Member, K_Univ, I_Univ, R_Univ)
+
+
+@app.url_defaults
+def static_cache_buster(endpoint, values):
+    if endpoint == 'assets':
+        values['_v'] = ASSET_REVISION
+
+@app.route('/assets/<path:filename>')
+def assets(filename):
+    return send_from_directory(app.root_path + '/../assets/', filename)
 
 @app.route('/', methods=['GET','POST'])
 def index():
