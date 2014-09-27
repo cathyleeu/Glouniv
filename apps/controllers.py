@@ -23,10 +23,15 @@ def assets(filename):
 
 @app.route('/', methods=['GET','POST'])
 def index():
+
+	# 게시판별로 글을 가져옴 
+	forums = Forum.query.order_by(desc(Forum.date_created)).all()
+	frees = Free.query.order_by(desc(Free.date_created)).all()
+	notices = Notice.query.order_by(desc(Notice.date_created)).all()
 	if 'user_email' in session:
-		return render_template("main.html", username= session['user_email'])
+		return render_template("main.html", username= session['user_email'], forums=forums, frees=frees, notices=notices)
 	
-	return render_template('main.html')
+	return render_template('main.html', forums=forums, frees=frees, notices=notices)
 
 @app.route('/columbia', methods=['GET','POST'])
 def columbia():	

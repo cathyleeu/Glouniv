@@ -15,10 +15,12 @@
 			</div>
 			<div id="login">
 				<form role="form" action="{{ url_for('log_in')}}" method= "POST">
-					<div style="width: 200px; float:left;">
 					{% if g.user_name != None %}
-						{{ g.user_name }}님 환영합니다. <button style="margin: 25px 0 0 10px; height: 93px; width: 80px" type="submit" formaction="{{ url_for('log_out')}}"class="btn btn-default">LogOut</button>  
+					<div style="width: 200px; float:left;">
+						{{ g.user_name }}님 환영합니다.
+					</div> <button style="margin: 25px 0 0 10px; height: 93px; width: 80px" type="submit" formaction="{{ url_for('log_out')}}"class="btn btn-default">LogOut</button>
 					{% else %}
+					<div style="width: 200px; float:left;">
 						<label for="login-id">ID</label>
 						<input type="text" name="email" class="form-control" id="login-id" placeholder="ID"/>
 						<label for="login-pw">Password</label>
@@ -32,13 +34,19 @@
 				</form>
 			</div>
 	<div id="notice" style="text-align: left; padding:10px">
-		공지사항<br><br>1.가나다라마바사<br>2.아자차카타파하<br>3.ABCDEFG
+		{% for notice in notices %}
+            <br><a href="{{ url_for('notice_detail', id=notice.id) }}">{{ notice.title }}</a><br>
+        {% endfor %}
 	</div>
 	<div id="list-free" style="text-align: left; padding:10px">
-		자유게시판<br><br>1.가나다라마바사<br>2.아자차카타파하<br>3.ABCDEFG
+		{% for free in frees %}
+            <br><a href="{{ url_for('free_detail', id=free.id) }}">{{ free.title }}</a><br>
+        {% endfor %}
 	</div>
 	<div id="list-qna" style="text-align: left; padding:10px">
-		질문게시판<br><br>1.가나다라마바사<br>2.아자차카타파하<br>3.ABCDEFG
+		{% for forum in forums %}
+            <br><a href="{{ url_for('forum_detail', id=forum.id) }}">{{ forum.title }}</a><br>
+        {% endfor %}
 	</div>
 	</center>
 {% endblock %}
