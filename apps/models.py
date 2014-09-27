@@ -172,7 +172,7 @@ class I_Univ(db.Model):
     avg_credit = db.Column(db.Integer)
     eng_score = db.Column(db.Integer)
     student = db.Column(db.Integer)
-    tuition = db.Column(db.Integer)
+    tuition = db.Column(db.Integer) 
     cost = db.Column(db.Integer)
     house = db.Column(db.Integer)
     content = db.Column(db.Text())

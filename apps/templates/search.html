@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block contents %}
+	{% if result %}
+		{% for text in result %}
+			{{ text.title }}
+		{% endfor %}
+	{% else %}
+		<div class ="no-list">
+			관심있는 대학교에 대한 질문을 등록해주세요.
+		</div>
+	{% endif %}
+{% endblock %}

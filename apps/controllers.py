@@ -2,7 +2,8 @@
 from flask import render_template, request, redirect, url_for, flash, session, g, send_from_directory
 import hashlib 
 import datetime
-from sqlalchemy import desc
+import logging
+from sqlalchemy import desc, or_
 from werkzeug.security import generate_password_hash, check_password_hash
 from apps import app, db
 from apps.forms import ArticleForm, CommentForm, ForumForm, JoinForm, LoginForm
@@ -1001,3 +1002,18 @@ def fcomment_create(humor_id):
 				flash(u'댓글을 작성하였습니다.', 'success')
 			return redirect(url_for('faq_detail', id=faq_id))
 		return render_template('fcomment/create.html', form=form)
+
+
+@app.route('/search')
+def search():
+	query = request.args.get('query')
+
+	query_string = '%' + query + '%'
+
+	result = Forum.query.filter(
+		or_(
+			Forum.title.ilike(query_string)
+			)
+		).all()
+	return render_template("search.html", result=result)
+
