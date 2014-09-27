@@ -27,18 +27,17 @@ html { overflow-y: hidden; }
 	position: absolute;
 	height: 25px;
 	left: 50%;
-	margin-left: -220px;
+	margin-left: -300px;
 }
 
 #dropdownmenu{
-	margin: 0 auto;
+	width: 650px;
 	border: 2px solid #4ab7c1;
-	width: 500px;
 	z-index: 1;
 	background: white;
 	position: absolute;
 	left: 50%;
-	margin-left:-257px;
+	margin-left:-330px;
 }
 
 #dropdownmenu dl{
@@ -47,7 +46,7 @@ html { overflow-y: hidden; }
 }
 
 #dropdownmenu dl dd{
-	margin-bottom: 5px;
+	margin: 0 0 5px 0;
 }
 
 #dropdownmenu dl dd a{
