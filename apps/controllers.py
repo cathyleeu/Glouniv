@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-ASSET_REVISION = hashlib.sha1(str(DefaultConfig.PROJECT) + str(datetime.datetime.now())).hexdigest()[:16]
-from flask import render_template, request, redirect, url_for, flash, session, g
+from flask import render_template, request, redirect, url_for, flash, session, g, send_from_directory
+import hashlib 
+import datetime
 from sqlalchemy import desc
 from werkzeug.security import generate_password_hash, check_password_hash
 from apps import app, db
@@ -11,12 +12,13 @@ from apps.models import (Forum, Board, QnA, QnAComment, Comment, BoardComment, F
 
 @app.url_defaults
 def static_cache_buster(endpoint, values):
-    if endpoint == 'assets':
-        values['_v'] = ASSET_REVISION
+	ASSET_REVISION = hashlib.sha1("glouniv"+ str(datetime.datetime.now())).hexdigest()[:16]
+	if endpoint == 'assets':
+		values['_v'] = ASSET_REVISION
 
 @app.route('/assets/<path:filename>')
 def assets(filename):
-    return send_from_directory(app.root_path + '/../assets/', filename)
+    return send_from_directory(app.root_path + '/assets/', filename)
 
 @app.route('/', methods=['GET','POST'])
 def index():
