@@ -238,3 +238,30 @@ footer{
 	border-bottom: 1px solid #bcbcbc;
 	font-size: 14px;
 }
+
+#create-container{
+	width: 940px;
+}
+
+#create-container label{
+	float: left;
+}
+
+#create-container input{
+	width: 830px;
+}
+
+#create-container textarea{
+	width: 828px;
+	height: 500px;
+}
+
+#create-button{
+	width: 100px;
+	height: 40px;
+	float: right;
+}
+
+.form-group{
+	margin-bottom: 20px;
+}
