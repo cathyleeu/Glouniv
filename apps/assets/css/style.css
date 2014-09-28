@@ -12,6 +12,15 @@
 	margin: 10px 0 10px 0
 }
 
+#mainarticlelist a, #mainarticlelist a:visited{
+	text-decoration: none;
+	color: black;
+}
+
+#mainarticlelist a:hover{
+	text-decoration: underline;
+}
+
 #menu-bar{
 	z-index: 2;
 	width: 940px;
@@ -238,7 +247,6 @@ footer{
 	border-bottom: 1px solid #bcbcbc;
 	font-size: 14px;
 }
-<<<<<<< HEAD
 
 #create-container label{
 	float: left;
@@ -261,27 +269,4 @@ footer{
 
 .form-group{
 	margin-bottom: 20px;
-=======
-.info h1{
-	height: 65px;
-	font-size:20px;
-	border-top:3px solid #4ab7c1;
-	letter-spacing: 1px;
-	text-align: left;
-	padding-left: 10px;
-}
-.info ul li{
-	float: left;
-	width: 175px;
-	font-size: 13px;
-	line-height: 1.8;
-	text-indent: 5px;
-	margin: 0;
-	padding: 0;
-	display: block;
-	-webkit-margin-before:1em;
-	-webkit-margin-after:1em;
-	-webkit-margin-start:0em;
-	-webkit-margin-end:0em;
->>>>>>> 7c392bf275bf7103f2242354b3b7926c8ec46d19
 }
