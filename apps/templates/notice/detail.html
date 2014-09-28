@@ -25,31 +25,8 @@
 
             <div id="article-buttons">
                 <a href="{{ url_for('notice_list') }}" class="btn btn-primary">목록보기</a>
-                <a href="{{ url_for('frcomment_create', notice_id=notice.id) }}" class="btn btn-info">댓글쓰기</a>
                 <a href="{{ url_for('notice_update', id=notice.id) }}" class="btn btn-success">글 수정</a>
                 <a href="{{ url_for('notice_delete', id=notice.id) }}" class="btn btn-danger">글 삭제</a>
-            </div>
-
-            <div id="article-comment">
-                {% if comments %}
-                    <table>
-                        {% for comment in comments %}
-                                <tr>
-                                    <td style="font-weight:bold; width:90%">{{ comment.author }}</td>
-                                    <td rowspan="2" style="vertical-align: top;">{{ comment.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</td>
-                                </tr>
-                                <tr>
-                                    <td>{{ comment.content }}</td>
-                                </tr>
-                        {% endfor %}
-                {% else %}
-                        <td><tr>
-                        <div class="no-list">
-                            댓글이 없습니다.
-                        </div>
-                        </td></tr>
-                    {% endif %}
-                    </table>
             </div>
         </div>
     </center>
