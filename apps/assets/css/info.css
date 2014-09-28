@@ -35,11 +35,13 @@
 }
 
 .article h2 {
-	margin: 1em 0;
+	margin-top: 20px;
+	margin: 3em 0;
 	font-size: 2em;
-	border-bottom: 3px solid #f5bca8;
+	border-bottom: 3px solid #4ab7c1;
 	padding-bottom: .3em;
-	color: #f5bca8;
+	color: #4ab7c1;
+	font-family: 'Hanna', serif;
 }
 
 .article p {
@@ -47,6 +49,7 @@
 	font-size: 1.1em;
 	line-height: 1.6;
 	text-align: justify;
+	font-family: 'Jeju Gothic', serif;
 }
 
 .article h2 + p,
@@ -56,4 +59,7 @@
 
 .article p:first-of-type:first-line {
 	font-weight: 700;
+}
+.information{
+	margin-top: 20px; 
 }

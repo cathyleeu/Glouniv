@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block contents %}
+<center>
     <div class="llArticleCreate">
         <form role="form" method="post">
             {{ form.hidden_tag() }}
@@ -17,13 +18,14 @@
                     {% endfor %}
                 </div>
             {% endif %}
-
-            {% from "_form_field.html" import render_field %}
-            {% for field in form if field.widget.input_type != 'hidden' %}
-                {{ render_field(field, class="form-control") }}
-            {% endfor %}
-
-            <button type="submit" class="btn btn-default">글쓰기</button>
+            <div id="create-container" class="fontface" style='width: 940px;'>
+                {% from "_form_field.html" import render_field %}
+                {% for field in form if field.widget.input_type != 'hidden' %}
+                    {{ render_field(field, class="form-control") }}
+                {% endfor %}
+               <button type="submit" id="create-button">글쓰기</button>
+            </div>
         </form>
     </div>
+</center>
 {% endblock %}
