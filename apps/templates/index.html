@@ -87,14 +87,12 @@
 				<input id="search-input" name="query" placeholder="SEARCH">
 				<input type="submit" id="search-icon" value="">
 			</form>
-	</center>
 		</div>
+	</center>
 			{% block main %}{% endblock %}
 			{% block univ %}{% endblock %}
 			{% block about%}{% endblock %}
-		<div>
 			{% block layout %}{% endblock %}
-		</div>
 	<center>
 	<footer>
 		<img src="{{ url_for('assets', filename='img/footerlogo.png')}}"/>
