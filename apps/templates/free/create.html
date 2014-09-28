@@ -18,7 +18,7 @@
                     {% endfor %}
                 </div>
             {% endif %}
-            <div id="create-container" class="fontface">
+            <div id="create-container" class="fontface" style='width: 940px;'>
                 {% from "_form_field.html" import render_field %}
                 {% for field in form if field.widget.input_type != 'hidden' %}
                     {{ render_field(field, class="form-control") }}
