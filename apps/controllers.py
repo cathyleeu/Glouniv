@@ -266,7 +266,7 @@ def forum_create():
 				# 사용자가 입력한 글 데이터로 Article 모델 인스턴스를 생성한다.
 				forum = Forum(
 					title=form.title.data,
-					author=form.author.data,
+					author=g.user_name,
 					content=form.content.data
 					)
 
@@ -346,7 +346,7 @@ def comment_create(forum_id):
 				#     article_id=article_id
 				# )
 				comment = Comment(
-					author=form.author.data,
+					author=g.user_name,
 					email=form.email.data,
 					content=form.content.data,
 					password=form.password.data,
@@ -382,7 +382,7 @@ def qna_create():
 				# 사용자가 입력한 글 데이터로 Article 모델 인스턴스를 생성한다.
 				qna = QnA(
 					title=form.title.data,
-					author=form.author.data,
+					author=g.user_name,
 					content=form.content.data
 					)
 
@@ -462,7 +462,7 @@ def qcomment_create(qna_id):
 				#     article_id=article_id
 				# )
 				comment = QnAComment(
-					author=form.author.data,
+					author=g.user_name,
 					email=form.email.data,
 					content=form.content.data,
 					password=form.password.data,
@@ -498,7 +498,7 @@ def board_create():
 				# 사용자가 입력한 글 데이터로 Article 모델 인스턴스를 생성한다.
 				board = Board(
 					title=form.title.data,
-					author=form.author.data,
+					author=g.user_name,
 					content=form.content.data
 					)
 
@@ -578,7 +578,7 @@ def bcomment_create(board_id):
 				#     article_id=article_id
 				# )
 				comment = BoardComment(
-					author=form.author.data,
+					author=g.user_name,
 					email=form.email.data,
 					content=form.content.data,
 					password=form.password.data,
@@ -614,7 +614,7 @@ def free_create():
 				# 사용자가 입력한 글 데이터로 Article 모델 인스턴스를 생성한다.
 				free = Free(
 					title=form.title.data,
-					author=form.author.data,
+					author=g.user_name,
 					content=form.content.data
 					)
 
@@ -694,7 +694,7 @@ def frcomment_create(free_id):
 				#     article_id=article_id
 				# )
 				comment = FreeComment(
-					author=form.author.data,
+					author=g.user_name,
 					email=form.email.data,
 					content=form.content.data,
 					password=form.password.data,
@@ -730,7 +730,7 @@ def humor_create():
 				# 사용자가 입력한 글 데이터로 Article 모델 인스턴스를 생성한다.
 				humor = Humor(
 					title=form.title.data,
-					author=form.author.data,
+					author=g.user_name,
 					content=form.content.data
 					)
 
@@ -810,7 +810,7 @@ def hcomment_create(humor_id):
 				#     article_id=article_id
 				# )
 				comment = HumorComment(
-					author=form.author.data,
+					author=g.user_name,
 					email=form.email.data,
 					content=form.content.data,
 					password=form.password.data,
@@ -846,7 +846,7 @@ def notice_create():
 				# 사용자가 입력한 글 데이터로 Article 모델 인스턴스를 생성한다.
 				notice = Notice(
 					title=form.title.data,
-					author=form.author.data,
+					author=g.user_name,
 					content=form.content.data
 					)
 
@@ -929,7 +929,7 @@ def faq_create():
 				# 사용자가 입력한 글 데이터로 Article 모델 인스턴스를 생성한다.
 				faq = FAQ(
 					title=form.title.data,
-					author=form.author.data,
+					author=g.user_name,
 					content=form.content.data
 					)
 
@@ -1009,7 +1009,7 @@ def fcomment_create(faq_id):
 				#     article_id=article_id
 				# )
 				comment = FAQComment(
-					author=form.author.data,
+					author=g.user_name,
 					email=form.email.data,
 					content=form.content.data,
 					password=form.password.data,
