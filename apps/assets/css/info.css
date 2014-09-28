@@ -1,0 +1,59 @@
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+
+.info{
+	text-align: left;
+	width: 300px;
+	height: 200px;
+	padding: 10px 10px 20px 20px;
+	margin: -372px 0 0 610px;
+	border-top:3px solid #4ab7c1;
+	position: relative;
+	font-family: 'Hanna', serif;
+}
+.info h1{
+	text-align: center;
+	height: 65px;
+	font-size:20px;
+	letter-spacing: 1px;
+	text-align: left;
+	padding-left: 10px;
+	font-family: 'Jeju Gothic', serif;
+}
+.info ul li{
+	width: 175px;
+	line-height: 1.8;
+	text-indent: 5px;
+	display: block;
+}
+.article {
+	width: 100%;
+	max-width: 50em;
+	margin: 0 auto; 
+	padding: 1em;
+	counter-reset: figures;
+}
+
+.article h2 {
+	margin: 1em 0;
+	font-size: 2em;
+	border-bottom: 3px solid #f5bca8;
+	padding-bottom: .3em;
+	color: #f5bca8;
+}
+
+.article p {
+	margin-bottom: 1em;
+	font-size: 1.1em;
+	line-height: 1.6;
+	text-align: justify;
+}
+
+.article h2 + p,
+.article h2 + figure + p {
+	text-indent: 1em;
+}
+
+.article p:first-of-type:first-line {
+	font-weight: 700;
+}
