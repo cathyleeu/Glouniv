@@ -33,20 +33,22 @@
 					{% endif %}
 				</form>
 			</div>
-	<div id="notice" style="text-align: left; padding:10px">
-		{% for notice in notices %}
-            <br><a href="{{ url_for('notice_detail', id=notice.id) }}">{{ notice.title }}</a><br>
-        {% endfor %}
-	</div>
-	<div id="list-free" style="text-align: left; padding:10px">
-		{% for free in frees %}
-            <br><a href="{{ url_for('free_detail', id=free.id) }}">{{ free.title }}</a><br>
-        {% endfor %}
-	</div>
-	<div id="list-qna" style="text-align: left; padding:10px">
-		{% for forum in forums %}
-            <br><a href="{{ url_for('forum_detail', id=forum.id) }}">{{ forum.title }}</a><br>
-        {% endfor %}
-	</div>
+			<div id="mainarticlelist">
+				<div id="notice" style="text-align: left; padding:20px">
+					{% for notice in notices %}
+			            <a href="{{ url_for('notice_detail', id=notice.id) }}">{{ notice.title }}</a><br>
+			        {% endfor %}
+				</div>
+				<div id="list-free" style="text-align: left; padding:20px">
+					{% for free in frees %}
+			            <a href="{{ url_for('free_detail', id=free.id) }}">{{ free.title }}</a><br>
+			        {% endfor %}
+				</div>
+				<div id="list-qna" style="text-align: left; padding:20px">
+					{% for forum in forums %}
+			            <a href="{{ url_for('forum_detail', id=forum.id) }}">{{ forum.title }}</a><br>
+			        {% endfor %}
+				</div>
+			</div>
 	</center>
 {% endblock %}

@@ -1,13 +1,25 @@
 {% extends "layout.html" %}
 
 {% block contents %}
+	<h3>검색결과</h3>
 	{% if result %}
+		<table id="board-list">
+			<tr>
+				<th style="width: 20%;">글쓴이</th>
+				<th style="width: 60%;">제목</th>
+				<th style="width: 20%;">등록일</th>
+			</tr>
 		{% for text in result %}
-			{{ text.title }}
+			<tr>
+				<td>{{ text.author }}</td>
+				<td>{{ text.title }}</td>
+				<td>{{ text.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+			</tr>
 		{% endfor %}
 	{% else %}
 		<div class ="no-list">
 			관심있는 대학교에 대한 질문을 등록해주세요.
 		</div>
 	{% endif %}
+		</table>
 {% endblock %}

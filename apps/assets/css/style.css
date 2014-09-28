@@ -12,6 +12,15 @@
 	margin: 10px 0 10px 0
 }
 
+#mainarticlelist a, #mainarticlelist a:visited{
+	text-decoration: none;
+	color: black;
+}
+
+#mainarticlelist a:hover{
+	text-decoration: underline;
+}
+
 #menu-bar{
 	z-index: 2;
 	width: 940px;
@@ -238,3 +247,29 @@ footer{
 	border-bottom: 1px solid #bcbcbc;
 	font-size: 14px;
 }
+<<<<<<< HEAD
+=======
+
+#create-container label{
+	float: left;
+}
+
+#create-container input{
+	width: 830px;
+}
+
+#create-container textarea{
+	width: 828px;
+	height: 500px;
+}
+
+#create-button{
+	width: 100px;
+	height: 40px;
+	float: right;
+}
+
+.form-group{
+	margin-bottom: 20px;
+}
+>>>>>>> c5d2e5b6b53e41ca07268cc0b05bc428ef6b92a0
