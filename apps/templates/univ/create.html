@@ -1,29 +1,35 @@
 {% extends "layout.html" %}
 
 {% block contents %}
-    <div class="llArticleCreate">
-        <form role="form" method="post">
-            {{ form.hidden_tag() }}
-
-            {% if form.errors %}
-                <div class="alert alert-danger fade in">
-                    <a class="close" data-dismiss="alert" href="#">&times;</a>
-                    {% for field, errors in form.errors.items() %}
-                        <ul>
-                            {% for error in errors %}
-                                {{ error }}
-                            {% endfor %}
-                        </ul>
-                    {% endfor %}
+<center>
+    {% if url %}
+    <div id="container">
+        <div class="slider-wrapper theme-default">
+            <div class="ribbon"></div>
+                <div id="slider" class="nivoSlider">
+                    <img src="{{ url }}">
+                    <img src="{{ url }}">
+                    <img src="{{ url }}">
+                    <img src="{{ url }}">
+                    <img src="{{ url }}">
                 </div>
-            {% endif %}
-
-            {% from "_form_field.html" import render_field %}
-            {% for field in form if field.widget.input_type != 'hidden' %}
-                {{ render_field(field, class="form-control") }}
-            {% endfor %}
-
-            <button type="submit" class="btn btn-default">글쓰기</button>
-        </form>
-    </div>
+            </div>
+        </div>
+    {% endif %}
+    <form action="{{ url_for("univ_create")}}" enctype="multipart/form-data" method="POST">
+        사진:<input type="file" name="photo"><br>
+        대학이름:<input type="text" name="univ_name"><br>
+        국가:<input type="text" name="nation"><br>
+        주:<input type="text" name="state"><br>
+        도시:<input type="text" name="city"><br>
+        평점:<input type="text" name="avg_credit"><br>
+        공인영어점수:<input type="text" name="eng_score"><br>
+        지원학생수:<input type="text" name="student"><br>
+        학비:<input type="text" name="tuition"><br>
+        비용:<input type="text" name="cost"><br>
+        주거비용:<input type="text" name="house"><br>
+        기간:<input type="text" name="term"><br>
+        <button type="submit" value="submit">등록하기</button>
+    </form>
+</center>
 {% endblock %}

@@ -175,7 +175,9 @@ class I_Univ(db.Model):
     tuition = db.Column(db.Integer) 
     cost = db.Column(db.Integer)
     house = db.Column(db.Integer)
+    term = db.Column(db.Integer)
     content = db.Column(db.Text())
+    photo = db.Column(db.Text())
     date_created = db.Column(db.DateTime(), default=db.func.now())
 
 class R_Univ(db.Model):

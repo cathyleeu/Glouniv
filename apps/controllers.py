@@ -1,15 +1,19 @@
 # -*- coding: utf-8 -*-
 from flask import render_template, request, redirect, url_for, flash, session, g, send_from_directory
-import hashlib 
+import hashlib
 import datetime
 import logging
 from sqlalchemy import desc, or_
 from werkzeug.security import generate_password_hash, check_password_hash
 from apps import app, db
 from apps.forms import ArticleForm, CommentForm, ForumForm, JoinForm, LoginForm
-
+from google.appengine.api import images
+from google.appengine.ext import blobstore
+from google.appengine.ext import db as gdb
 from apps.models import (Forum, Board, QnA, QnAComment, Comment, BoardComment, Free, FreeComment, Notice, Humor, HumorComment, FAQ, FAQComment, Member, K_Univ, I_Univ, R_Univ)
 
+class Photo(gdb.Model):
+	photo = gdb.BlobProperty()
 
 @app.url_defaults
 def static_cache_buster(endpoint, values):
@@ -156,42 +160,53 @@ def univ_list():
 
 @app.route('/univ/create/', methods=['GET','POST'])
 def univ_create():
-	if g.admin_name == None:
-		flash(u'로그인 후 이용해 주세요.', 'danger')
-		return redirect(url_for('log_in'))
-	else:
-		if request.method == 'POST':
-			if form.validate_on_submit():
-				# 사용자가 입력한 글 데이터로 Article 모델 인스턴스를 생성한다.
-				univ = I_Univ(
-					name=form.u.data,
-					author=form.author.data,
-					content=form.content.data
-					)
 
-				# 데이터베이스에 데이터를 저장할 준비를 한다. (게시글)
-				db.session.add(univ)
-				# 데이터베이스에 저장하라는 명령을 한다.
-				db.session.commit()
+	if request.method == 'GET':
+		return render_template('/univ/create.html')
+	elif request.method == 'POST':
+		univ_data = request.form
+		post_data = request.files['photo']
+		filestream = post_data.read()
 
-				flash(u'univ을 작성하였습니다.', 'success')
-			return redirect(url_for('univ_list'))
+		upload_data = Photo()
+		upload_data.photo = gdb.Blob(filestream)
+		upload_data.put()
 
-		return render_template('univ/create.html', form=form, active_tab='univ_create')
+
+		univ = I_Univ(
+			univ_name=univ_data['univ_name'],
+			nation=univ_data['nation'],
+			state=univ_data['state'],
+			city=univ_data['city'],
+			avg_credit=univ_data['avg_credit'],
+			eng_score=univ_data['eng_score'],
+			student=univ_data['student'],
+			tuition=univ_data['tuition'],
+			cost=univ_data['cost'],
+			house=univ_data['house'],
+			term=univ_data['term'],
+			photo=str(upload_data.key())
+			)
+
+			# 데이터베이스에 데이터를 저장할 준비를 한다. (게시글)
+		db.session.add(univ)
+			# 데이터베이스에 저장하라는 명령을 한다.
+		db.session.commit()
+
+		flash(u'univ을 작성하였습니다.', 'success')
+		return redirect(url_for('univ_list'))
+
+@app.route('/univpic/<key>', methods=['GET','POST'])
+def univpic(key):
+	uploaded_data = gdb.get(key)
+	return app.response_class(uploaded_data.photo)
 
 @app.route('/univ/detail/<int:id>', methods=['GET'])
 def univ_detail(id):
-	if g.user_name == None:
-		flash(u'로그인 후 이용해 주세요.', 'danger')
-		return redirect(url_for('log_in'))
-	else:
 		univ = univ.query.get(id)
 		# comments = Comment.query.order_by(desc(Comment.date_created)).filter_by(article=article)
 
-		# relationship을 활용한 query
-		comments = univ.comments.order_by(desc(Comment.date_created)).all()
-
-		return render_template('univ/detail.html', univ=univ, comments=comments)
+		return render_template('univ/detail.html', univ=univ)
 
 
 @app.route('/univ/update/<int:id>', methods=['GET', 'POST'])
